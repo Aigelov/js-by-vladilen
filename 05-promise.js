@@ -45,19 +45,79 @@
 //   .finally(() => console.log('Finally'));
 
 
-const delay = ms => new Promise(resolve => {
-  return setTimeout(() => {
-    console.log(ms);
-    resolve();
-  }, ms);
-});
+// const delay = ms => new Promise(resolve => {
+//   return setTimeout(() => {
+//     console.log(ms);
+//     resolve();
+//   }, ms);
+// });
 // delay(500).then(() => console.log('After 500 milli seconds'));
 // delay(1500).then(() => console.log('After 1500 milli seconds'));
 // Promise.all([delay(1000), delay(3000)])
 //   .then(() => {
 //     console.log('All promises');
 //   });
-Promise.race([delay(1000), delay(3000)])
-  .then(() => {
-    console.log('Race promises');
+// Promise.race([delay(1000), delay(3000)])
+//   .then(() => {
+//     console.log('Race promises');
+//   });
+
+
+/** Chaining */
+// let promise = new Promise(function(resolve) {
+//   setTimeout(() => resolve(1), 500); // (*)
+// });
+// promise
+//   .then(function(result) { // (**)
+//     console.log(result); // 1
+//     return result * 2;
+//   }).then(function(result) { // (***)
+//     console.log(result); // 2
+//     return result * 2;
+//   }).then(function(result) {
+//     console.log(result); // 4
+//     return result * 2;
+//   });
+
+
+/** Not chaining */
+// let promise2 = new Promise(function(resolve) {
+//   setTimeout(() => resolve(1), 1000);
+// });
+// const data1 = promise2.then(function(result) {
+//   console.log(result); // 1
+//   return result * 2;
+// });
+// const data2 = promise2.then(function(result) {
+//   console.log(result); // 1
+//   return result * 3;
+// });
+// const data3 = promise2.then(function(result) {
+//   console.log(result); // 1
+//   return result * 4;
+// });
+// data1.then(result => console.log('\n' + result));
+// data2.then(result => console.log(result));
+// data3.then(result => console.log(result));
+
+
+/** Returning promises */
+const promise = new Promise((resolve) => {
+  setTimeout(() => resolve(1), 500);
+});
+promise
+  .then((result) => {
+    console.log(result); // 1
+    return new Promise((resolve) => { // (*)
+      setTimeout(() => resolve(result * 2), 500);
+    });
+  })
+  .then((result) => { // (**)
+    console.log(result); // 2
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(result * 2), 500);
+    });
+  })
+  .then((result) => {
+    console.log(result); // 4
   });
