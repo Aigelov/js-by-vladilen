@@ -7,6 +7,11 @@
 // }
 // const str = strGenerator();
 // console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
+// console.log(str.next());
 
 
 // function* numberGen(n = 10) {
@@ -15,6 +20,11 @@
 //   }
 // }
 // const number = numberGen(5);
+// console.log(number.next());
+// console.log(number.next());
+// console.log(number.next());
+// console.log(number.next());
+// console.log(number.next());
 // console.log(number.next());
 
 
@@ -49,11 +59,11 @@
 // }
 
 
-function* iter(n = 10) {
-  for (let i = 0; i < n; i++) {
-    yield i;
-  }
-}
-for (let k of iter(7)) {
-  console.log(k);
-}
+// function* iter(n = 10) {
+//   for (let i = 0; i < n; i++) {
+//     yield i;
+//   }
+// }
+// for (let k of iter(7)) {
+//   console.log(k);
+// }
