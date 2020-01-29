@@ -1,0 +1,24 @@
+{
+  "name": "js-by-vladilen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-prototype.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aigelov/js-by-vladilen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aigelov/js-by-vladilen/issues"
+  },
+  "homepage": "https://github.com/Aigelov/js-by-vladilen#readme",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "nodemon": "^2.0.1"
+  }
+}
